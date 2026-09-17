@@ -24,7 +24,7 @@ a = st.number_input(
     max_value=4.0,
     value=1.0,
     step=0.1,
-    format="%.3f"
+    format="%.2f"
 )
 
 # --------------------------------------------------
@@ -68,8 +68,8 @@ ax.plot(
 # Label a
 ax.text(
     a,
-    -0.1,
-    f"a = {a:.3f}",
+    y_a+0.1,
+    f"a = {a:.2f}",
     ha="center",
     fontsize=11
 )
