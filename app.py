@@ -69,7 +69,7 @@ ax.axvline(
 )
 # Label a
 ax.text(
-    a+0.1,
+    a+0.5,
     y_a,
     f"a = {a:.2f}",
     ha="center",
