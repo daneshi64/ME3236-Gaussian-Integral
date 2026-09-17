@@ -51,6 +51,8 @@ ax.plot(
 # Vertical line at a
 ax.axvline(
     x=a,
+    ymin=0,
+    ymax=y_a,
     linestyle="--",
     linewidth=2
 )
@@ -67,8 +69,8 @@ ax.plot(
 
 # Label a
 ax.text(
-    a,
-    y_a+0.1,
+    a+0.1,
+    y_a,
     f"a = {a:.2f}",
     ha="center",
     fontsize=11
