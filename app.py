@@ -7,13 +7,16 @@ from scipy.integrate import quad
 # Page setup
 # --------------------------------------------------
 st.set_page_config(
-    page_title="Gaussian Integral Calculator",
+    page_title="Error Function Calculator",
     layout="centered"
 )
 
-st.title("Gaussian Integral Calculator")
+st.title("Error Function Calculator")
 
-st.latex(r"I(a)=\int_0^a e^{-z^2}\,dz")
+st.latex(
+    r"\mathrm{erf}(a)=\frac{1}{\sqrt{2\pi}}"
+    r"\int_0^a e^{-z^2/2}\,dz"
+)
 
 # --------------------------------------------------
 # Input
@@ -23,35 +26,53 @@ a = st.number_input(
     min_value=0.0,
     max_value=4.0,
     value=1.0,
-    step=0.1,
+    step=0.01,
     format="%.2f"
 )
 
 # --------------------------------------------------
-# Calculate integral
+# Calculate erf(a)
 # --------------------------------------------------
-result, error = quad(lambda z: np.exp(-z**2), 0, a)
+integral, error = quad(
+    lambda z: np.exp(-z**2 / 2),
+    0,
+    a
+)
+
+result = integral / np.sqrt(2 * np.pi)
 
 # --------------------------------------------------
-# Gaussian curve
+# Generate curve exp(-z^2/2)
 # --------------------------------------------------
 z = np.linspace(0, 4, 500)
-y = np.exp(-z**2)
+y = np.exp(-z**2 / 2)
 
+# Value of curve at z = a
+y_a = np.exp(-a**2 / 2)
+
+# --------------------------------------------------
+# Plot
+# --------------------------------------------------
 fig, ax = plt.subplots(figsize=(8, 5))
 
-# Gaussian curve
+# Plot the integrand
 ax.plot(
     z,
     y,
     linewidth=2.5,
-    label=r"$e^{-z^2}$"
+    label=r"$e^{-z^2/2}$"
 )
 
+# Vertical line from y = 0 to the intersection
+ax.vlines(
+    x=a,
+    ymin=0,
+    ymax=y_a,
+    linestyle="--",
+    linewidth=2
+)
 
-# Mark the intersection with the curve
-y_a = np.exp(-a**2)
-
+# Mark intersection
 ax.plot(
     a,
     y_a,
@@ -59,18 +80,10 @@ ax.plot(
     markersize=7
 )
 
-# Vertical line at a
-ax.axvline(
-    x=a,
-    ymin=0,
-    ymax=y_a*1.1,
-    linestyle="--",
-    linewidth=2
-)
 # Label a
 ax.text(
-    a+0.3,
-    y_a,
+    a,
+    -0.07,
     f"a = {a:.2f}",
     ha="center",
     fontsize=11
@@ -80,14 +93,18 @@ ax.text(
 # Plot formatting
 # --------------------------------------------------
 ax.set_xlabel("z", fontsize=13)
-ax.set_ylabel(r"$e^{-z^2}$", fontsize=13)
+ax.set_ylabel(r"$e^{-z^2/2}$", fontsize=13)
 
 ax.set_xlim(0, 4)
 ax.set_ylim(0, 1.05)
-# Keep tick marks but hide their numerical labels
-ax.tick_params(axis='both', which='both',
-               labelbottom=False,
-               labelleft=False)
+
+# Keep ticks but hide numerical tick labels
+ax.tick_params(
+    axis="both",
+    which="both",
+    labelbottom=False,
+    labelleft=False
+)
 
 ax.grid(alpha=0.2)
 ax.legend(fontsize=12)
@@ -97,11 +114,10 @@ plt.tight_layout()
 st.pyplot(fig)
 
 # --------------------------------------------------
-# Result
+# Display result
 # --------------------------------------------------
 st.subheader("Result")
 
 st.latex(
-    rf"\int_0^{{{a:.3f}}} e^{{-z^2}}\,dz"
-    rf" = {result:.6f}"
+    rf"\mathrm{{erf}}({a:.2f}) = {result:.6f}"
 )
