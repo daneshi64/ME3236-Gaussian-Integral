@@ -7,14 +7,14 @@ from scipy.integrate import quad
 # Page setup
 # --------------------------------------------------
 st.set_page_config(
-    page_title="Error Function Calculator",
+    page_title="Standard Normal Integral Calculator",
     layout="centered"
 )
 
-st.title("Error Function Calculator")
+st.title("Standard Normal Integral Calculator")
 
 st.latex(
-    r"\mathrm{erf}(a)=\frac{1}{\sqrt{2\pi}}"
+    r"\mathrm{I}(a)=\frac{1}{\sqrt{2\pi}}"
     r"\int_0^a e^{-z^2/2}\,dz"
 )
 
@@ -67,7 +67,7 @@ ax.plot(
 ax.vlines(
     x=a,
     ymin=0,
-    ymax=y_a,
+    ymax=y_a*1.1,
     linestyle="--",
     linewidth=2
 )
@@ -119,5 +119,5 @@ st.pyplot(fig)
 st.subheader("Result")
 
 st.latex(
-    rf"\mathrm{{erf}}({a:.2f}) = {result:.6f}"
+    rf"\mathrm{{P(0<x<a)}}({a:.2f}) = {result:.6f}"
 )
