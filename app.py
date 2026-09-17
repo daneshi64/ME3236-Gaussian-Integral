@@ -121,3 +121,13 @@ st.subheader("Result")
 st.latex(
     rf"P(0 \leq z \leq {a:.2f}) = {result:.5f}"
 )
+
+
+st.markdown(
+    """
+    <div style="text-align: center; font-size: 11px; color: gray; margin-top: 40px;">
+        Developed by Masoud Daneshi
+    </div>
+    """,
+    unsafe_allow_html=True
+)
