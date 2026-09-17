@@ -68,7 +68,7 @@ ax.plot(
 # Label a
 ax.text(
     a,
-    -0.07,
+    -0.1,
     f"z = {a:.3f}",
     ha="center",
     fontsize=11
