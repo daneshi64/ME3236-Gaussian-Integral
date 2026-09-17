@@ -48,14 +48,6 @@ ax.plot(
     label=r"$e^{-z^2}$"
 )
 
-# Vertical line at a
-ax.axvline(
-    x=a,
-    ymin=0,
-    ymax=y_a,
-    linestyle="--",
-    linewidth=2
-)
 
 # Mark the intersection with the curve
 y_a = np.exp(-a**2)
@@ -67,6 +59,14 @@ ax.plot(
     markersize=7
 )
 
+# Vertical line at a
+ax.axvline(
+    x=a,
+    ymin=0,
+    ymax=y_a,
+    linestyle="--",
+    linewidth=2
+)
 # Label a
 ax.text(
     a+0.1,
