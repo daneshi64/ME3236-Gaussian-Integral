@@ -84,6 +84,9 @@ ax.set_ylabel(r"$e^{-z^2}$", fontsize=13)
 
 ax.set_xlim(0, 4)
 ax.set_ylim(0, 1.05)
+# Remove x y-axis ticks
+ax.set_yticks([])
+ax.set_xticks([])
 
 ax.grid(alpha=0.2)
 ax.legend(fontsize=12)
