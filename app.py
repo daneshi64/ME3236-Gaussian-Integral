@@ -69,7 +69,7 @@ ax.plot(
 ax.text(
     a,
     -0.1,
-    f"z = {a:.3f}",
+    f"a = {a:.3f}",
     ha="center",
     fontsize=11
 )
