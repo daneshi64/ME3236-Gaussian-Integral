@@ -119,5 +119,5 @@ st.pyplot(fig)
 st.subheader("Result")
 
 st.latex(
-    rf"\mathrm{{P(0<x<{a:.2f})}} = {result:.6f}"
+    rf"\mathrm{{P(0=<x<={a:.2f})}} = {result:.6f}"
 )
