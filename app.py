@@ -63,13 +63,13 @@ ax.plot(
 ax.axvline(
     x=a,
     ymin=0,
-    ymax=y_a,
+    ymax=y_a*1.1,
     linestyle="--",
     linewidth=2
 )
 # Label a
 ax.text(
-    a+0.5,
+    a+0.3,
     y_a,
     f"a = {a:.2f}",
     ha="center",
