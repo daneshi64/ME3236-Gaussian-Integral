@@ -119,7 +119,7 @@ st.pyplot(fig)
 st.subheader("Result")
 
 st.latex(
-    rf"P(0 \leq z \leq {a:.2f}) = {result:.5f}"
+    rf"P(0 \leq \xi \leq {a:.2f}) = {result:.5f}"
 )
 
 
