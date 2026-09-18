@@ -14,15 +14,15 @@ st.set_page_config(
 st.title("Standard Normal Integral Calculator")
 
 st.latex(
-    r"\mathrm{P}(0 \leq \xi \leq a)=\frac{1}{\sqrt{2\pi}}"
-    r"\int_0^a e^{-z^2/2}\,dz"
+    r"\mathrm{P}(0 \leq \xi \leq z)=\frac{1}{\sqrt{2\pi}}"
+    r"\int_0^z e^{-\xi^2/2}\,d\xi"
 )
 
 # --------------------------------------------------
 # Input
 # --------------------------------------------------
 a = st.number_input(
-    "Enter the value of a:",
+    "Enter the value of z:",
     min_value=0.0,
     max_value=4.0,
     value=1.0,
@@ -119,7 +119,7 @@ st.pyplot(fig)
 st.subheader("Result")
 
 st.latex(
-    rf"P(0 \leq z \leq {a:.2f}) = {result:.5f}"
+    rf"P(0 \leq \xi \leq {z:.2f}) = {result:.5f}"
 )
 
 
