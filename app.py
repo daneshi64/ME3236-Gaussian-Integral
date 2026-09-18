@@ -92,8 +92,8 @@ ax.text(
 # --------------------------------------------------
 # Plot formatting
 # --------------------------------------------------
-ax.set_xlabel("z", fontsize=13)
-ax.set_ylabel(r"$e^{-z^2/2}$", fontsize=13)
+ax.set_xlabel("\xi", fontsize=13)
+ax.set_ylabel(r"$e^{-\xi^2/2}$", fontsize=13)
 
 ax.set_xlim(0, 4)
 ax.set_ylim(0, 1.05)
@@ -119,7 +119,7 @@ st.pyplot(fig)
 st.subheader("Result")
 
 st.latex(
-    rf"P(0 \leq \xi \leq {z:.2f}) = {result:.5f}"
+    rf"P(0 \leq \xi \leq {a:.2f}) = {result:.5f}"
 )
 
 
