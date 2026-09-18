@@ -92,7 +92,7 @@ ax.text(
 # --------------------------------------------------
 # Plot formatting
 # --------------------------------------------------
-ax.set_xlabel("z", fontsize=13)
+ax.set_xlabel(r"$e^{-\xi^2/2}$", fontsize=13)
 ax.set_ylabel(r"$e^{-\xi^2/2}$", fontsize=13)
 
 ax.set_xlim(0, 4)
