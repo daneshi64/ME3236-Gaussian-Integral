@@ -84,7 +84,7 @@ ax.plot(
 ax.text(
     a,
     -0.07,
-    f"\xi = {a:.2f}",
+    f"z = {a:.2f}",
     ha="center",
     fontsize=11
 )
