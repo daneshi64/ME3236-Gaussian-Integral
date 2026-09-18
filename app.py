@@ -14,7 +14,7 @@ st.set_page_config(
 st.title("Standard Normal Integral Calculator")
 
 st.latex(
-    r"\mathrm{P}(0 \leq z \leq a)=\frac{1}{\sqrt{2\pi}}"
+    r"\mathrm{P}(0 \leq \xi \leq a)=\frac{1}{\sqrt{2\pi}}"
     r"\int_0^a e^{-z^2/2}\,dz"
 )
 
