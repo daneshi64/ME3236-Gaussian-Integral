@@ -24,7 +24,7 @@ st.latex(
 a = st.number_input(
     "Enter the value of z:",
     min_value=0.0,
-    max_value=5.0,
+    max_value=4.5,
     value=1.0,
     step=0.01,
     format="%.2f"
@@ -44,7 +44,7 @@ result = integral / np.sqrt(2 * np.pi)
 # --------------------------------------------------
 # Generate curve exp(-z^2/2)
 # --------------------------------------------------
-z = np.linspace(0, 4, 500)
+z = np.linspace(0, 4.5, 500)
 y = np.exp(-z**2 / 2)
 
 # Value of curve at z = a
