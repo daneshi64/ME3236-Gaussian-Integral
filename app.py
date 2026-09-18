@@ -24,7 +24,7 @@ st.latex(
 a = st.number_input(
     "Enter the value of z:",
     min_value=0.0,
-    max_value=4.0,
+    max_value=5.0,
     value=1.0,
     step=0.01,
     format="%.2f"
@@ -95,7 +95,7 @@ ax.text(
 ax.set_xlabel(r"${\xi}$", fontsize=13)
 ax.set_ylabel(r"$e^{-\xi^2/2}$", fontsize=13)
 
-ax.set_xlim(0, 4)
+ax.set_xlim(0, 4.5)
 ax.set_ylim(0, 1.05)
 
 # Keep ticks but hide numerical tick labels
