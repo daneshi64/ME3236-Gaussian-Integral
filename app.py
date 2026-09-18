@@ -60,7 +60,7 @@ ax.plot(
     z,
     y,
     linewidth=2.5,
-    label=r"$e^{-z^2/2}$"
+    label=r"$e^{-\xi^2/2}$"
 )
 
 # Vertical line from y = 0 to the intersection
