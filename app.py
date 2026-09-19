@@ -159,7 +159,7 @@ P_target = st.number_input(
     min_value=0.0,
     max_value=0.499999,
     value=0.341345,
-    step=0.001,
+    step=0.00001,
     format="%.6f"
 )
 
