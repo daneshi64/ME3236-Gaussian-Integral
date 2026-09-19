@@ -231,5 +231,5 @@ st.latex(
 )
 
 st.latex(
-    rf"z = {z_result:.4f}"
+    rf"z = {z_result:.2f}"
 )
