@@ -119,7 +119,7 @@ st.pyplot(fig)
 st.subheader("Result")
 
 st.latex(
-    rf"P(0 \leq \xi \leq {a:.2f}) = {result:.6f}"
+    rf"P(0 \leq \xi \leq {a:.2f}) = {result:.5f}"
 )
 
 
@@ -227,7 +227,7 @@ z_result = find_z_bisection(P_target)
 st.subheader("Result")
 
 st.latex(
-    rf"P(0 \leq Z \leq z) = {P_target:.6f}"
+    rf"P(0 \leq Z \leq z) = {P_target:.5f}"
 )
 
 st.latex(
