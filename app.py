@@ -131,3 +131,105 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
+
+
+
+# ==================================================
+# INVERSE STANDARD NORMAL INTEGRAL CALCULATOR
+# ==================================================
+
+st.divider()
+
+st.header("Inverse Standard Normal Integral Calculator")
+
+st.markdown(
+    "Enter the value of the integral to calculate the corresponding value of **z**."
+)
+
+st.latex(
+    r"P=\frac{1}{\sqrt{2\pi}}"
+    r"\int_0^z e^{-t^2/2}\,dt"
+)
+
+# --------------------------------------------------
+# Input target integral value
+# --------------------------------------------------
+P_target = st.number_input(
+    "Enter the integral value P:",
+    min_value=0.0,
+    max_value=0.499999,
+    value=0.341345,
+    step=0.001,
+    format="%.6f"
+)
+
+# --------------------------------------------------
+# Standard normal integral
+# --------------------------------------------------
+def normal_integral(z):
+    integral, _ = quad(
+        lambda t: np.exp(-t**2 / 2),
+        0,
+        z
+    )
+
+    return integral / np.sqrt(2 * np.pi)
+
+
+# --------------------------------------------------
+# Function whose root we want to find
+#
+# F(z) = Integral(z) - P_target
+# --------------------------------------------------
+def F(z, target):
+    return normal_integral(z) - target
+
+
+# --------------------------------------------------
+# Bisection method
+# --------------------------------------------------
+def find_z_bisection(target, tolerance=1e-8):
+
+    z_low = 0.0
+    z_high = 5.0
+
+    # Continue until the interval is sufficiently small
+    while (z_high - z_low) > tolerance:
+
+        # Midpoint
+        z_mid = (z_low + z_high) / 2
+
+        # Evaluate F at midpoint
+        F_mid = F(z_mid, target)
+
+        # F(z_low) is negative.
+        # If F_mid is negative, root is to the right.
+        if F_mid < 0:
+            z_low = z_mid
+
+        # If F_mid is positive, root is to the left.
+        else:
+            z_high = z_mid
+
+    # Best estimate of the root
+    return (z_low + z_high) / 2
+
+
+# --------------------------------------------------
+# Calculate z
+# --------------------------------------------------
+z_result = find_z_bisection(P_target)
+
+
+# --------------------------------------------------
+# Display result
+# --------------------------------------------------
+st.subheader("Result")
+
+st.latex(
+    rf"P(0 \leq Z \leq z) = {P_target:.6f}"
+)
+
+st.latex(
+    rf"z = {z_result:.4f}"
+)
