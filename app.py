@@ -188,7 +188,7 @@ def F(z, target):
 # --------------------------------------------------
 # Bisection method
 # --------------------------------------------------
-def find_z_bisection(target, tolerance=1e-8):
+def find_z_bisection(target, tolerance=1e-11):
 
     z_low = 0.0
     z_high = 5.0
